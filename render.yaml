@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: signal-veil-web
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
