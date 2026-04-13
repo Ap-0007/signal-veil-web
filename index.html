@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Signal Veil</title>
+    <meta name="description" content="Anonymous encrypted room chat for the web">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="backdrop backdrop-a"></div>
+    <div class="backdrop backdrop-b"></div>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">Signal Veil</p>
+        <h1>Anonymous encrypted chat, browser-first.</h1>
+        <p class="lede">
+          No accounts, no profiles, no plaintext on the server. Share an invite link and the room secret stays in the URL fragment.
+        </p>
+      </section>
+
+      <section class="grid">
+        <aside class="panel control-panel">
+          <div class="panel-header">
+            <h2>Identity</h2>
+            <button id="rotateAliasButton" class="ghost-button" type="button">Rotate Alias</button>
+          </div>
+
+          <label class="field">
+            <span>Alias</span>
+            <input id="aliasInput" type="text" maxlength="32" autocomplete="off">
+          </label>
+
+          <div class="divider"></div>
+
+          <div class="panel-header">
+            <h2>Room</h2>
+            <button id="createRoomButton" class="ghost-button" type="button">New Room</button>
+          </div>
+
+          <label class="field">
+            <span>Room Code</span>
+            <input id="roomInput" type="text" maxlength="40" autocomplete="off" spellcheck="false">
+          </label>
+
+          <label class="field">
+            <span>Room Secret</span>
+            <input id="secretInput" type="text" maxlength="80" autocomplete="off" spellcheck="false">
+          </label>
+
+          <div class="button-row">
+            <button id="joinRoomButton" class="primary-button" type="button">Join Room</button>
+            <button id="copyInviteButton" class="secondary-button" type="button">Copy Invite</button>
+          </div>
+
+          <div class="status-card">
+            <p class="status-label">Session</p>
+            <p id="statusText" class="status-value">Idle. Create or join a room.</p>
+          </div>
+
+          <div class="status-card">
+            <p class="status-label">Presence</p>
+            <p id="presenceText" class="status-value">0 participants</p>
+          </div>
+        </aside>
+
+        <section class="panel chat-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow compact">Encrypted Feed</p>
+              <h2 id="roomTitle">No room joined</h2>
+            </div>
+            <p id="inviteHint" class="invite-hint">Share an invite link after joining.</p>
+          </div>
+
+          <div id="messages" class="messages" aria-live="polite"></div>
+
+          <form id="composer" class="composer">
+            <textarea id="messageInput" rows="3" maxlength="1000" placeholder="Write a message only the room can decrypt." disabled></textarea>
+            <div class="composer-footer">
+              <p class="microcopy">The server relays ciphertext only. The room secret never leaves your browser hash.</p>
+              <button id="sendButton" class="primary-button" type="submit" disabled>Send</button>
+            </div>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <template id="messageTemplate">
+      <article class="message-card">
+        <div class="message-meta">
+          <span class="message-alias"></span>
+          <span class="message-time"></span>
+        </div>
+        <p class="message-body"></p>
+      </article>
+    </template>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
