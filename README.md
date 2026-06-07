@@ -1,66 +1,46 @@
 # Signal Veil Web
 
-Anonymous encrypted room chat for the web.
+Signal Veil Web — a project by vanta.nox.
 
-## Local Run
+![Language](https://img.shields.io/badge/language-JavaScript-blue) ![License](https://img.shields.io/badge/license-MIT-green) ![GitHub](https://img.shields.io/github/stars/Ap-0007/signal-veil-web?style=social)
 
-```bash
-cd /Users/amogh/Documents/anon-web-chat
-npm test
-npm start
-```
+## 🌐 Live Demo
 
-Then open `http://localhost:8080`.
+**[View Live →](https://signal-veil-web.vercel.app)**
 
-## Deploy
+## 📖 About
 
-This app is a static frontend plus a small Node server for room state and realtime relay.
+This repository contains the source code for **Signal Veil Web**.
 
-### GitHub First
+## 🛠️ Tech Stack
 
-```bash
-cd /Users/amogh/Documents/anon-web-chat
-git init -b main
-git add .
-git commit -m "Initial Signal Veil web app"
-git remote add origin https://github.com/YOUR_USERNAME/signal-veil-web.git
-git push -u origin main
-```
+- **Primary Language:** JavaScript
 
-### Render
-
-Use:
-
-- Push the repo to GitHub.
-- In Render, choose `New +` -> `Blueprint`.
-- Select the repo.
-- Render will read [render.yaml](/Users/amogh/Documents/anon-web-chat/render.yaml) and create the web service.
-- After the first deploy, share the Render URL.
-
-Manual settings if you do not use the blueprint:
-
-- Start command: `npm start`
-- Node version: `22`
-- Environment variable: `HOST=0.0.0.0`
-- Health check path: `/health`
-
-### Railway
-
-### Docker
+## 🚀 Getting Started
 
 ```bash
-docker build -t signal-veil-web .
-docker run -p 8080:8080 signal-veil-web
+# Clone the repository
+git clone https://github.com/Ap-0007/signal-veil-web.git
+cd signal-veil-web
 ```
 
-## Security Model
+```bash
+# Install dependencies
+npm install
 
-- No accounts.
-- The room secret is intended to be shared in the URL hash so it is not sent to the server.
-- The server stores only ciphertext, nonces, room IDs, timestamps, and anonymous client IDs.
-- Rooms live in memory only and expire after inactivity.
+# Start development server
+npm run dev
+```
 
-## Limits
+## 🤝 Contributing
 
-- This is not a Bluetooth web app. It is the closest deployable browser equivalent: anonymous encrypted room chat.
-- Server memory is ephemeral. Restarting the process clears rooms.
+Contributions, issues, and feature requests are welcome!  
+Feel free to open an [issue](https://github.com/Ap-0007/signal-veil-web/issues) or submit a pull request.
+
+## 📄 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+---
+
+**Built by [vanta.nox](https://github.com/Ap-0007)**
